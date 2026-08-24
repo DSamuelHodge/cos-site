@@ -1,0 +1,132 @@
+# Build Hugo+Hextra on every push/PR. Deploy runs on main after GitHub Pages
+# is enabled (Settings → Pages → Source: GitHub Actions), or this workflow
+# will try to enable it on the first main run.
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      pages_ready: ${{ steps.pages.outcome }}
+    env:
+      DART_SASS_VERSION: 1.102.0
+      GO_VERSION: 1.26.5
+      HUGO_VERSION: 0.165.0
+      TZ: UTC
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          lfs: false
+
+      - name: Setup Pages
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v6
+        with:
+          enablement: true
+
+      - name: Create a local tools directory
+        run: mkdir -p "${HOME}/.local"
+
+      - name: Install Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: false
+
+      - name: Install Dart Sass
+        run: |
+          echo "Installing Dart Sass ${DART_SASS_VERSION}..."
+          curl -sfL --output-dir "${{ runner.temp }}" -O "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          tar -C "${HOME}/.local" -xf "${{ runner.temp }}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
+
+      - name: Install Hugo
+        run: |
+          echo "Installing Hugo Extended ${HUGO_VERSION}..."
+          curl -sfL --output-dir "${{ runner.temp }}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          mkdir "${HOME}/.local/hugo"
+          tar -C "${HOME}/.local/hugo" -xf "${{ runner.temp }}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+
+      - name: Log tool versions
+        run: |
+          echo "Dart Sass: $(sass --version)"
+          echo "Go: $(go version)"
+          echo "Hugo: $(hugo version)"
+
+      - name: Configure Git
+        run: git config --global core.quotepath false
+
+      - name: Cache restore
+        id: cache-restore
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/.cache/hugo
+          key: hugo-${{ github.run_id }}
+          restore-keys: hugo-
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          if [ "${{ steps.pages.outcome }}" = "success" ] && [ -n "${{ steps.pages.outputs.base_url }}" ]; then
+            BASE_URL="${{ steps.pages.outputs.base_url }}"
+          else
+            BASE_URL="https://dsamuelhodge.github.io/cos-site"
+          fi
+          echo "baseURL=${BASE_URL}/"
+          hugo build \
+            --gc \
+            --minify \
+            --baseURL "${BASE_URL}/" \
+            --cacheDir "${{ runner.temp }}/.cache/hugo"
+
+      - name: Cache save
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/.cache/hugo
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && steps.pages.outcome == 'success'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          include-hidden-files: false
+          path: ./public
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.build.outputs.pages_ready == 'success'
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
