@@ -13,6 +13,6 @@ cascade:
 Synthesis that should last. Subscribe: [notes RSS](index.xml) · [feed RSS](feed/index.xml)
 
 {{< cards >}}
-  {{< card link="/notes/decisions" title="Decisions" icon="check-circle" subtitle="kind: decision" >}}
-  {{< card link="/notes/feed" title="Feed" icon="rss" subtitle="kind: feed · RSS" >}}
+  {{< card link="decisions/" title="Decisions" icon="check-circle" subtitle="kind: decision" >}}
+  {{< card link="feed/" title="Feed" icon="rss" subtitle="kind: feed · RSS" >}}
 {{< /cards >}}
