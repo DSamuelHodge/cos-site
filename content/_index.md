@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Derrick Hodge
-description: Working memory for staying in flow — Life, Work, and Notes. HTML for humans; Markdown, JSON, and RSS for agents.
+description: "Working memory for staying in flow — Life, Work, and Notes. HTML for humans; Markdown, JSON, and RSS for agents."
 date: 2026-08-24
 draft: false
 ---

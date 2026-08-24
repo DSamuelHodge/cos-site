@@ -2,7 +2,7 @@
 schema: cos.feed/v1
 kind: feed
 title: Schema lock for Life, Work, and Notes
-description: Front matter is now a contract. Work items match Kaneo createProject and createTask. This feed is the public RSS.
+description: "Front matter is now a contract. Work items match Kaneo createProject and createTask. This feed is the public RSS."
 source: cos
 date: 2026-08-24
 draft: false

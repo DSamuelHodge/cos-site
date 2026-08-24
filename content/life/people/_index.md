@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: People
-description: Public-safe relationship index. Kind person. Names, role, relation, status. No phones or SMS.
+description: "Public-safe relationship index. Kind person. Names, role, relation, status. No phones or SMS."
 weight: 1
 date: 2026-08-24
 draft: false

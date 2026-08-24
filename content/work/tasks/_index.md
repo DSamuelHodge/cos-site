@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Tasks
-description: One executable unit. Kind task. Kaneo createTask fields plus GitHub parent and assignee_kind. Index only.
+description: "One executable unit. Kind task. Kaneo createTask fields plus GitHub parent and assignee_kind. Index only."
 weight: 2
 date: 2026-08-24
 draft: false

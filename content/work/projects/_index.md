@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Projects
-description: Bounded outcomes. Kind project. Kaneo name/slug/icon plus CoS goal, status, assignee_kind. Index only.
+description: "Bounded outcomes. Kind project. Kaneo name/slug/icon plus CoS goal, status, assignee_kind. Index only."
 weight: 1
 date: 2026-08-24
 draft: false

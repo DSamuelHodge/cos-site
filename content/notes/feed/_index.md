@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Feed
-description: Shareable newsfeed. Kind feed. Subscribe to this section RSS. Public-safe items only.
+description: "Shareable newsfeed. Kind feed. Subscribe to this section RSS. Public-safe items only."
 weight: 2
 date: 2026-08-24
 draft: false

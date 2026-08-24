@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Work
-description: Projects and tasks use Kaneo field names. GitHub issues dispatch agents. This site is the public index, not the task database.
+description: "Projects and tasks use Kaneo field names. GitHub issues dispatch agents. This site is the public index, not the task database."
 weight: 2
 date: 2026-08-24
 draft: false

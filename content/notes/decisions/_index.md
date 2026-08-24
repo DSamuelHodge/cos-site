@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Decisions
-description: Calls that were made, with enough context to remember why. Kind decision.
+description: "Calls that were made, with enough context to remember why. Kind decision."
 weight: 1
 date: 2026-08-24
 draft: false

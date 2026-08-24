@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Life
-description: Personal operating system. Public-safe titles and status only. Child kinds: person, ops, focus, education.
+description: "Personal operating system. Public-safe titles and status only. Child kinds: person, ops, focus, education."
 weight: 1
 date: 2026-08-24
 draft: false

@@ -2,7 +2,7 @@
 schema: cos.page/v1
 kind: section
 title: Notes
-description: Lasting thinking. Decisions are ADRs. Feed is the shareable RSS newsfeed.
+description: "Lasting thinking. Decisions are ADRs. Feed is the shareable RSS newsfeed."
 weight: 3
 date: 2026-08-24
 draft: false
