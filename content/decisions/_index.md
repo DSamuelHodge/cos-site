@@ -1,5 +1,0 @@
----
-title: Decisions
----
-
-Decision log.

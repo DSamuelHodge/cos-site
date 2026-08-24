@@ -1,13 +1,17 @@
-# CoS site
+# Derrick Hodge
 
-Hugo + Hextra. Local clone: `~/projects/cos-site` on Termux.
+Hugo + Hextra site. Local clone: `~/projects/cos-site` on Termux.
+
+- **Life** — People, Operations, Focus, Education
+- **Work** — Projects, Tasks, Commitments (GitHub issues dispatch agents; Kaneo and Linear ingest the same schema)
+- **Notes** — synthesis and decisions
 
 Preview: `hugo server --bind 127.0.0.1 --baseURL http://127.0.0.1:1313/`
 
-CI (`.github/workflows/hugo.yaml`) builds Hugo Extended 0.165.0 on every push and PR. On `main` it also uploads a Pages artifact and deploys.
+CI (`.github/workflows/hugo.yaml`) builds Hugo Extended 0.165.0 on every push and PR. On `main` it deploys GitHub Pages.
 
-GitHub Pages URL (project site): https://dsamuelhodge.github.io/cos-site/
+Live: https://dsamuelhodge.github.io/cos-site/
 
-If Pages is not on yet: repo **Settings → Pages → Source: GitHub Actions**. The workflow also tries to enable Pages on the first `main` run. Private repos need GitHub Pro (or a public repo) for Pages.
+Agent issue forms: `.github/ISSUE_TEMPLATE/project.yml` and `task.yml`.
 
 Do not commit secrets, phones, or SMS bodies.

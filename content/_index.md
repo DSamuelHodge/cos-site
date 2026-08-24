@@ -1,11 +1,11 @@
 ---
-title: CoS
+title: Derrick Hodge
 ---
 
-Chief of Staff publishing surface. Lucas writes Markdown here; Hugo renders it.
+Working memory for staying in flow and getting better — personally and professionally.
 
 {{< cards >}}
-  {{< card link="/briefings" title="Briefings" icon="document-text" >}}
-  {{< card link="/docs" title="Docs" icon="book-open" >}}
-  {{< card link="/decisions" title="Decisions" icon="check-circle" >}}
+  {{< card link="/life" title="Life" icon="user" >}}
+  {{< card link="/work" title="Work" icon="briefcase" >}}
+  {{< card link="/notes" title="Notes" icon="book-open" >}}
 {{< /cards >}}

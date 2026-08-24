@@ -1,0 +1,75 @@
+name: Task
+description: One agent-executable unit. Child of a project when there is one. Same schema for Kaneo and Linear.
+title: "[task] "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Canonical agent contract. GitHub is the dispatch surface. Kaneo and Linear ingest these fields.
+        Do not put phones, SMS, or secrets in the issue body.
+  - type: dropdown
+    id: type
+    attributes:
+      label: type
+      options:
+        - task
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: parent
+    attributes:
+      label: parent
+      description: Parent project GitHub issue number. Leave empty only if there is no project yet.
+      placeholder: "12"
+  - type: input
+    id: goal
+    attributes:
+      label: goal
+      description: Which personal or professional goal this serves.
+    validations:
+      required: true
+  - type: dropdown
+    id: assignee_kind
+    attributes:
+      label: assignee_kind
+      options:
+        - cos
+        - kaneo
+        - linear
+        - other-agent
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: status
+      options:
+        - proposed
+        - ready
+        - in_progress
+        - blocked
+        - done
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: acceptance
+      description: Checkbox list. Task is done when these are true.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: links
+      description: Site path, Kaneo id, Linear id. Fill after sync.
+      value: |
+        site:
+        kaneo:
+        linear:

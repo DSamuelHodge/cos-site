@@ -1,0 +1,76 @@
+name: Project
+description: Bounded outcome. Parent issue for agent tasks. Same schema for Kaneo and Linear.
+title: "[project] "
+labels: ["project"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Canonical agent contract. `cos.db` holds personal context. GitHub dispatches work.
+        Site pages under `/work/projects` are indexes only — titles and status, no secrets.
+  - type: dropdown
+    id: type
+    attributes:
+      label: type
+      options:
+        - project
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: parent
+    attributes:
+      label: parent
+      description: Parent GitHub issue number, if this project sits under another. Leave empty for a root project.
+      placeholder: "12"
+  - type: input
+    id: goal
+    attributes:
+      label: goal
+      description: Which personal or professional goal this serves.
+    validations:
+      required: true
+  - type: dropdown
+    id: assignee_kind
+    attributes:
+      label: assignee_kind
+      options:
+        - cos
+        - kaneo
+        - linear
+        - other-agent
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: status
+      options:
+        - proposed
+        - ready
+        - in_progress
+        - blocked
+        - done
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: acceptance
+      description: Checkbox list. Project is done when these are true.
+      value: |
+        - [ ] Outcome is shipped or explicitly dropped
+        - [ ] Child tasks are closed or moved
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: links
+      description: Site path, Kaneo id, Linear id. Fill after sync.
+      value: |
+        site:
+        kaneo:
+        linear:
