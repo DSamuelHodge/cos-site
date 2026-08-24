@@ -1,12 +1,13 @@
 name: Task
-description: One agent-executable unit. Child of a project when there is one. Same schema for Kaneo and Linear.
+description: One executable unit. Kaneo createTask fields plus CoS dispatch.
 title: "[task] "
 labels: ["task"]
 body:
   - type: markdown
     attributes:
       value: |
-        Canonical agent contract. GitHub is the dispatch surface. Kaneo and Linear ingest these fields.
+        Canonical contract: `data/schemas/task.yaml`.
+        Kaneo `POST /task/{projectId}` requires title, description, priority, status.
         Do not put phones, SMS, or secrets in the issue body.
   - type: dropdown
     id: type
@@ -17,12 +18,62 @@ body:
       default: 0
     validations:
       required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: description
+      description: Kaneo description (required). Public-safe. What done looks like in one paragraph.
+    validations:
+      required: true
+  - type: input
+    id: projectId
+    attributes:
+      label: projectId
+      description: Kaneo project id (path param). Empty only if the Kaneo project does not exist yet.
   - type: input
     id: parent
     attributes:
       label: parent
-      description: Parent project GitHub issue number. Leave empty only if there is no project yet.
+      description: Parent project GitHub issue number.
       placeholder: "12"
+  - type: dropdown
+    id: priority
+    attributes:
+      label: priority
+      options:
+        - no-priority
+        - low
+        - medium
+        - high
+        - urgent
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: status
+      description: Kaneo column slug. Default board uses these four.
+      options:
+        - todo
+        - in-progress
+        - blocked
+        - done
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: startDate
+    attributes:
+      label: startDate
+      description: ISO 8601 or empty.
+      placeholder: "2026-08-24"
+  - type: input
+    id: dueDate
+    attributes:
+      label: dueDate
+      description: ISO 8601 or empty.
+      placeholder: "2026-08-31"
   - type: input
     id: goal
     attributes:
@@ -42,19 +93,6 @@ body:
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: status
-    attributes:
-      label: status
-      options:
-        - proposed
-        - ready
-        - in_progress
-        - blocked
-        - done
-      default: 1
-    validations:
-      required: true
   - type: textarea
     id: acceptance
     attributes:
@@ -68,8 +106,9 @@ body:
     id: links
     attributes:
       label: links
-      description: Site path, Kaneo id, Linear id. Fill after sync.
+      description: Fill after sync.
       value: |
         site:
+        github:
         kaneo:
         linear:

@@ -1,0 +1,12 @@
+# Every public page. Agents copy this into YAML front matter.
+schema: cos.page/v1
+kind: section
+title: ""
+description: "" # one or two sentences; also used in RSS and JSON
+date: ""
+draft: false
+tags: []
+weight: 0
+# kind is one of:
+# section, person, ops, focus, education,
+# project, task, commitment, decision, feed

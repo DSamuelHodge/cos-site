@@ -1,13 +1,14 @@
 name: Project
-description: Bounded outcome. Parent issue for agent tasks. Same schema for Kaneo and Linear.
+description: Bounded outcome. Kaneo createProject fields plus CoS dispatch.
 title: "[project] "
 labels: ["project"]
 body:
   - type: markdown
     attributes:
       value: |
-        Canonical agent contract. `cos.db` holds personal context. GitHub dispatches work.
-        Site pages under `/work/projects` are indexes only — titles and status, no secrets.
+        Canonical contract: `data/schemas/project.yaml`.
+        Kaneo `POST /project` requires name, workspaceId, icon, slug.
+        Site pages under `/work/projects` are public indexes — no secrets.
   - type: dropdown
     id: type
     attributes:
@@ -18,10 +19,45 @@ body:
     validations:
       required: true
   - type: input
+    id: name
+    attributes:
+      label: name
+      description: Kaneo project name. Same as the issue title without the [project] prefix.
+    validations:
+      required: true
+  - type: input
+    id: slug
+    attributes:
+      label: slug
+      description: Kaneo URL slug. Lowercase, hyphenated.
+    validations:
+      required: true
+  - type: input
+    id: icon
+    attributes:
+      label: icon
+      description: Kaneo icon. Default folder.
+      placeholder: folder
+      value: folder
+    validations:
+      required: true
+  - type: input
+    id: workspaceId
+    attributes:
+      label: workspaceId
+      description: Kaneo workspace id. Leave empty if Kaneo has not created it yet.
+  - type: textarea
+    id: description
+    attributes:
+      label: description
+      description: Kaneo description. Public-safe. One or two sentences.
+    validations:
+      required: true
+  - type: input
     id: parent
     attributes:
       label: parent
-      description: Parent GitHub issue number, if this project sits under another. Leave empty for a root project.
+      description: Parent GitHub issue number, if this project sits under another.
       placeholder: "12"
   - type: input
     id: goal
@@ -46,12 +82,25 @@ body:
     id: status
     attributes:
       label: status
+      description: Board column slug. Create the same columns in Kaneo.
       options:
-        - proposed
-        - ready
-        - in_progress
+        - todo
+        - in-progress
         - blocked
         - done
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: priority
+      options:
+        - no-priority
+        - low
+        - medium
+        - high
+        - urgent
       default: 0
     validations:
       required: true
@@ -69,8 +118,9 @@ body:
     id: links
     attributes:
       label: links
-      description: Site path, Kaneo id, Linear id. Fill after sync.
+      description: Fill after sync.
       value: |
         site:
+        github:
         kaneo:
         linear:

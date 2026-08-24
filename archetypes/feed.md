@@ -1,9 +1,10 @@
 ---
-schema: cos.page/v1
-kind: section
+schema: cos.feed/v1
+kind: feed
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 description: ""
+source: "" # public URL or "cos"
 date: "{{ .Date }}"
-draft: true
+draft: false
 tags: []
 ---

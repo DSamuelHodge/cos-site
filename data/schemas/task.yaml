@@ -1,0 +1,25 @@
+# Kaneo createTask + CoS dispatch. Front matter on content/work/tasks/*.md
+# POST /task/{projectId} requires title, description, priority, status.
+schema: cos.task/v1
+kind: task
+title: "" # Kaneo title (required)
+description: "" # Kaneo description (required); public-safe
+projectId: "" # Kaneo project id (path param). Empty until sync.
+parent: "" # GitHub issue number of the parent project
+priority: no-priority # Kaneo: no-priority | low | medium | high | urgent
+status: todo # Kaneo column slug. Default board: todo | in-progress | blocked | done
+startDate: "" # ISO 8601 or empty
+dueDate: "" # ISO 8601 or empty
+userId: "" # Kaneo assignee id; empty until known
+kaneo_id: "" # Kaneo task id after sync
+goal: ""
+assignee_kind: cos # cos | kaneo | linear | other-agent
+acceptance: []
+links:
+  site: ""
+  github: ""
+  kaneo: ""
+  linear: ""
+tags: []
+draft: false
+date: ""

@@ -1,18 +1,28 @@
 {{- $pages := slice -}}
 {{- range .Pages -}}
   {{- $pages = $pages | append (dict
+    "schema" .Params.schema
+    "kind" .Params.kind
     "title" .Title
+    "description" .Description
     "permalink" .Permalink
     "path" .RelPermalink
-    "kind" .Kind
+    "kind_hugo" .Kind
     "section" .Section
+    "status" .Params.status
+    "priority" .Params.priority
     "date" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "tags" .Params.tags
+    "draft" .Draft
   ) -}}
 {{- end -}}
 {{- dict
+  "schema" .Params.schema
+  "kind" .Params.kind
   "title" .Title
+  "description" .Description
   "permalink" .Permalink
   "path" .RelPermalink
-  "kind" .Kind
+  "kind_hugo" .Kind
   "pages" $pages
   | jsonify -}}

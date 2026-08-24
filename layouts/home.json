@@ -2,21 +2,26 @@
 {{- range site.Pages -}}
   {{- if and (ne .Kind "taxonomy") (ne .Kind "term") (ne .Kind "404") -}}
     {{- $pages = $pages | append (dict
+      "schema" .Params.schema
+      "kind" .Params.kind
       "title" .Title
+      "description" .Description
       "permalink" .Permalink
       "path" .RelPermalink
-      "kind" .Kind
+      "kind_hugo" .Kind
       "section" .Section
+      "status" .Params.status
+      "priority" .Params.priority
       "date" (.Date.Format "2006-01-02T15:04:05Z07:00")
       "lastmod" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
       "tags" .Params.tags
       "draft" .Draft
-      "summary" .Plain
     ) -}}
   {{- end -}}
 {{- end -}}
 {{- dict
   "title" site.Title
+  "description" site.Params.description
   "baseURL" site.BaseURL
   "pages" $pages
   | jsonify -}}

@@ -1,0 +1,24 @@
+# Kaneo createProject + CoS dispatch. Front matter on content/work/projects/*.md
+schema: cos.project/v1
+kind: project
+title: "" # Kaneo name (same string)
+name: "" # Kaneo required; keep equal to title
+slug: "" # Kaneo required; URL-safe, unique
+icon: "folder" # Kaneo required
+description: "" # Kaneo description; public-safe
+workspaceId: "" # filled after Kaneo create; never invent
+kaneo_id: "" # Kaneo project id after sync
+status: todo # CoS board: todo | in-progress | blocked | done
+priority: no-priority # Kaneo: no-priority | low | medium | high | urgent
+goal: ""
+parent: "" # GitHub issue number of parent project, if any
+assignee_kind: cos # cos | kaneo | linear | other-agent
+acceptance: []
+links:
+  site: ""
+  github: ""
+  kaneo: ""
+  linear: ""
+tags: []
+draft: false
+date: ""
