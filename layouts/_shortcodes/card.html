@@ -1,0 +1,60 @@
+{{- /*
+  Hextra card, with site-root links run through relURL so GitHub Pages
+  subpath (/cos-site/) is applied. External http(s) links are unchanged.
+*/ -}}
+{{- $link := .Get "link" -}}
+{{- $title := .Get "title" -}}
+{{- $icon := .Get "icon" -}}
+{{- $subtitle := .Get "subtitle" -}}
+{{- $image := .Get "image" -}}
+{{- $alt := .Get "alt" | default $title -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- $imageStyle := .Get "imageStyle" -}}
+{{- $tag := .Get "tag" -}}
+{{- $tagColor := .Get "tagColor" | default (.Get "tagType") | default "" -}}
+{{- $tagBorder := not (eq (.Get "tagBorder") false) | default true }}
+{{- $tagIcon := .Get "tagIcon" | default "" -}}
+
+{{- $method := .Get "method" | default "Resize" | humanize -}}
+{{- $options := .Get "options" | default "800x webp q80" -}}
+{{- $process := .Get "process" | default (printf "%s %s" $method $options) -}}
+
+{{- if and $link (not (urls.Parse $link).Scheme) -}}
+  {{- if hasPrefix $link "/" -}}
+    {{- $link = relURL (strings.TrimPrefix "/" $link) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and $image (not (urls.Parse $image).Scheme) -}}
+  {{- with or (.Page.Resources.Get $image) (resources.Get $image) -}}
+    {{- if (not (eq .MediaType.SubType "svg")) -}}
+      {{- $processed := .Process $process -}}
+      {{- $width = $processed.Width -}}
+      {{- $height = $processed.Height -}}
+      {{- $image = $processed.RelPermalink -}}
+    {{- end -}}
+  {{ else }}
+    {{- if hasPrefix $image "/" -}}
+      {{- $image = relURL (strings.TrimPrefix "/" $image) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- partial "shortcodes/card" (dict
+  "page"        .Page
+  "link"        $link
+  "title"       $title
+  "icon"        $icon
+  "subtitle"    $subtitle
+  "image"       $image
+  "alt"         $alt
+  "width"       $width
+  "height"      $height
+  "imageStyle"  $imageStyle
+  "tag"         $tag
+  "tagType"     $tagColor
+  "tagBorder"   $tagBorder
+  "tagIcon"     $tagIcon
+  )
+-}}

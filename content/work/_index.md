@@ -25,7 +25,7 @@ Projects, tasks, and commitments. The site shows status. GitHub issues dispatch 
 | `assignee_kind` | `cos`, `kaneo`, `linear`, `other-agent` |
 
 {{< cards >}}
-  {{< card link="projects/" title="Projects" icon="folder" subtitle="schema: cos.project/v1" >}}
-  {{< card link="tasks/" title="Tasks" icon="check-circle" subtitle="schema: cos.task/v1" >}}
-  {{< card link="commitments/" title="Commitments" icon="calendar" subtitle="schema: cos.commitment/v1" >}}
+  {{< card link="/work/projects/" title="Projects" icon="folder" subtitle="schema: cos.project/v1" >}}
+  {{< card link="/work/tasks/" title="Tasks" icon="check-circle" subtitle="schema: cos.task/v1" >}}
+  {{< card link="/work/commitments/" title="Commitments" icon="calendar" subtitle="schema: cos.commitment/v1" >}}
 {{< /cards >}}

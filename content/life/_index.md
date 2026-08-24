@@ -24,8 +24,8 @@ People, operations, focus, and education. CRM detail stays in `cos.db`. These pa
 Always set `title` and `description`. No phones, emails, or private notes.
 
 {{< cards >}}
-  {{< card link="people/" title="People" icon="users" subtitle="kind: person" >}}
-  {{< card link="ops/" title="Operations" icon="home" subtitle="kind: ops" >}}
-  {{< card link="focus/" title="Focus" icon="sparkles" subtitle="kind: focus" >}}
-  {{< card link="education/" title="Education" icon="academic-cap" subtitle="kind: education" >}}
+  {{< card link="/life/people/" title="People" icon="users" subtitle="kind: person" >}}
+  {{< card link="/life/ops/" title="Operations" icon="home" subtitle="kind: ops" >}}
+  {{< card link="/life/focus/" title="Focus" icon="sparkles" subtitle="kind: focus" >}}
+  {{< card link="/life/education/" title="Education" icon="academic-cap" subtitle="kind: education" >}}
 {{< /cards >}}

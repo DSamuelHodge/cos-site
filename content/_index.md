@@ -12,9 +12,9 @@ Working memory for staying in flow and getting better — personally and profess
 Every page uses the same short contract: `schema`, `kind`, `title`, `description`. Work items add the Kaneo task/project fields so Kaneo, GitHub, and this site stay in sync.
 
 {{< cards >}}
-  {{< card link="life/" title="Life" icon="user" subtitle="People, ops, focus, education" >}}
-  {{< card link="work/" title="Work" icon="briefcase" subtitle="Projects, tasks, commitments" >}}
-  {{< card link="notes/" title="Notes" icon="book-open" subtitle="Decisions and the public feed" >}}
+  {{< card link="/life/" title="Life" icon="user" subtitle="People, ops, focus, education" >}}
+  {{< card link="/work/" title="Work" icon="briefcase" subtitle="Projects, tasks, commitments" >}}
+  {{< card link="/notes/" title="Notes" icon="book-open" subtitle="Decisions and the public feed" >}}
 {{< /cards >}}
 
 Machine reads: [site JSON](index.json) · [site RSS](index.xml) · [feed RSS](notes/feed/index.xml)
