@@ -1,0 +1,14 @@
+{{- dict
+  "title" .Title
+  "permalink" .Permalink
+  "path" .RelPermalink
+  "kind" .Kind
+  "section" .Section
+  "date" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "lastmod" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "tags" .Params.tags
+  "params" .Params
+  "draft" .Draft
+  "plain" .Plain
+  "markdown" .RawContent
+  | jsonify -}}

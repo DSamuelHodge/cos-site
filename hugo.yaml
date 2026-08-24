@@ -8,9 +8,11 @@ module:
     - path: github.com/imfing/hextra
 
 outputs:
-  home: [html, rss]
-  page: [html, markdown]
-  section: [html, rss, markdown]
+  home: [html, rss, json]
+  page: [html, markdown, json]
+  section: [html, rss, markdown, json]
+  taxonomy: [html, rss, json]
+  term: [html, rss, json]
 
 markup:
   goldmark:
