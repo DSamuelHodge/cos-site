@@ -1,0 +1,40 @@
+# Operating rhythm. Agents write pages that match these cadences.
+# Times are local intent, not a scheduler. Push jobs can subscribe later.
+
+briefings:
+  daily:
+    kind: briefing
+    cadence: weekday
+    path: notes/briefings
+    slug: "{{ date }}" # 2026-08-24
+    when: weekday morning
+    rss: true
+  weekly:
+    kind: briefing
+    cadence: weekly
+    path: notes/briefings
+    slug: "{{ year }}-W{{ week }}"
+    when: Sunday
+    rss: true
+
+goals:
+  review:
+    kind: goal
+    cadence: weekly
+    path: life/goals
+    when: with the weekly briefing
+    horizon: quarter | year | ongoing
+
+workflows:
+  review:
+    kind: workflow
+    cadence: as-needed
+    path: work/workflows
+    when: when a process breaks or a new agent is added
+
+routines:
+  review:
+    kind: routine
+    cadence: monthly
+    path: life/routines
+    when: first weekly briefing of the month

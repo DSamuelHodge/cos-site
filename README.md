@@ -2,11 +2,13 @@
 
 Hugo + Hextra site. Local clone: `~/projects/cos-site` on Termux.
 
-- **Life** — People, Operations, Focus, Education (`kind`: person, ops, focus, education)
-- **Work** — Projects, Tasks, Commitments. Projects and tasks use **Kaneo** field names (`data/schemas/`). GitHub issue forms dispatch agents.
-- **Notes** — Decisions and a shareable **Feed** (RSS at `/notes/feed/index.xml`)
+- **Life** — People, Operations, Focus, Education, Goals, Routines
+- **Work** — Projects, Tasks, Commitments, Workflows. Projects and tasks use **Kaneo** field names (`data/schemas/`).
+- **Notes** — Decisions, shareable **Feed**, and **Briefings** (weekday + weekly RSS)
 
-Every page has `schema`, `kind`, `title`, `description`. New pages: `hugo new --kind project work/projects/slug.md` (and `task`, `decision`, `feed`, `person`, `commitment`).
+Cadence lives in `data/cadence.yaml`. Briefings RSS: `/notes/briefings/index.xml`.
+
+Every page has `schema`, `kind`, `title`, `description`. New pages: `hugo new --kind briefing|goal|workflow|routine|project|task|…`.
 
 Preview: `hugo server --bind 127.0.0.1 --baseURL http://127.0.0.1:1313/`
 

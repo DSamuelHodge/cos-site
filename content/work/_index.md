@@ -28,4 +28,5 @@ Projects, tasks, and commitments. The site shows status. GitHub issues dispatch 
   {{< card link="/work/projects/" title="Projects" icon="folder" subtitle="schema: cos.project/v1" >}}
   {{< card link="/work/tasks/" title="Tasks" icon="check-circle" subtitle="schema: cos.task/v1" >}}
   {{< card link="/work/commitments/" title="Commitments" icon="calendar" subtitle="schema: cos.commitment/v1" >}}
+  {{< card link="/work/workflows/" title="Workflows" icon="cog" subtitle="schema: cos.workflow/v1" >}}
 {{< /cards >}}

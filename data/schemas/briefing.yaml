@@ -1,0 +1,14 @@
+schema: cos.briefing/v1
+kind: briefing
+title: ""
+description: "" # public-safe one-liner; RSS summary
+cadence: weekday # weekday | weekly
+period: "" # 2026-08-24 or 2026-W35
+status: published # draft | published
+attention: []
+due: []
+open_loops: []
+one_move: ""
+tags: []
+date: ""
+draft: false

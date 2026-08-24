@@ -1,0 +1,12 @@
+schema: cos.goal/v1
+kind: goal
+title: ""
+description: ""
+horizon: quarter # quarter | year | ongoing
+area: life # life | work
+status: active # active | paused | done
+cadence: weekly # review cadence
+success: ""
+tags: []
+date: ""
+draft: false

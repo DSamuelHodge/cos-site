@@ -1,0 +1,11 @@
+schema: cos.routine/v1
+kind: routine
+title: ""
+description: ""
+cadence: daily # daily | weekday | weekly | monthly
+when: "" # human window, e.g. morning
+status: active # active | paused
+steps: []
+tags: []
+date: ""
+draft: false

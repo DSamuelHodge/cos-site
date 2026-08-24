@@ -53,6 +53,16 @@ menu:
       pageRef: /life/education
       parent: life
       weight: 4
+    - identifier: goals
+      name: Goals
+      pageRef: /life/goals
+      parent: life
+      weight: 5
+    - identifier: routines
+      name: Routines
+      pageRef: /life/routines
+      parent: life
+      weight: 6
     - identifier: work
       name: Work
       pageRef: /work
@@ -72,6 +82,11 @@ menu:
       pageRef: /work/commitments
       parent: work
       weight: 3
+    - identifier: workflows
+      name: Workflows
+      pageRef: /work/workflows
+      parent: work
+      weight: 4
     - identifier: notes
       name: Notes
       pageRef: /notes
@@ -86,6 +101,11 @@ menu:
       pageRef: /notes/feed
       parent: notes
       weight: 2
+    - identifier: briefings
+      name: Briefings
+      pageRef: /notes/briefings
+      parent: notes
+      weight: 3
     - identifier: feed-rss
       name: RSS
       url: "https://dsamuelhodge.github.io/cos-site/notes/feed/index.xml"

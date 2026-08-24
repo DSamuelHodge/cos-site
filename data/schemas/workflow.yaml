@@ -1,0 +1,12 @@
+schema: cos.workflow/v1
+kind: workflow
+title: ""
+description: ""
+trigger: "" # what starts it
+owner: cos # cos | derrick | kaneo | other-agent
+cadence: as-needed
+status: active # active | paused | retired
+steps: []
+tags: []
+date: ""
+draft: false
