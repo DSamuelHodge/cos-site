@@ -108,4 +108,50 @@ Fill: canvas-soft. Border: 1px hairline. Radius: radius-md. Font: mono stack. Us
 
 **Prioritized starter templates** (general notification, status update, invoice, proposal delivery, cold outreach) were sent to hodgedomain@google.com for review using these exact tokens and components. They establish the reusable patterns for all other sends.
 
+## Nav-bar
+Wordmark left, single utility link right (e.g. "View in browser"). Bottom border 1px hairline. No logo mark required — text wordmark is sufficient.
+
+## Signature
+Structure, top to bottom:
+1. Name — body-strong, 15px, weight 600
+2. Title — body, 14px
+3. Contact lines (email / phone / site) — body, 14px, links in body-strong, 1.7 line-height
+Sits between two hairline dividers when it closes an email.
+
+## Hairline (divider)
+1px solid hairline color, no shadow, 32px vertical margin.
+
+---
+
+## Do's and Don'ts
+
+**Do**
+- Keep every template to a single primary CTA plus at most one ghost/secondary action
+- Reuse the shared shell + signature partial rather than rebuilding chrome per template
+- Always send text and html together (see Messages API note)
+- Inline all CSS in a `<style>` tag inside `<head>` — do not rely on external stylesheets
+
+**Don't**
+- Don't introduce a chromatic accent color for buttons or links
+- Don't use bold/heavy hero type — 400 weight only
+- Don't add drop shadows — hairline + surface contrast only
+- Don't exceed 600px content width
+- Don't use pill-shaped buttons
+
+---
+
+## File Map (this kit)
+
+`templates/`
+  - `00-shell-light.html` — reference shell, light canvas, no content
+  - `00-shell-dark.html` — reference shell, dark canvas, no content
+  - `01-general-notification.html` — catch-all single-CTA notification
+  - `02-status-update.html` — project status w/ summary card
+  - `03-invoice.html` — line-item table + payment CTA
+  - `04-proposal-delivery.html` — engagement summary + review/sign CTA
+  - `05-cold-outreach.html` — minimal, low-chrome outreach template
+  - `signature-snippet.html` — copy-paste signature partial
+
+**Next:** Create the `assets/brand/templates/` directory and populate the 8 reference files using the exact tokens, typography, components, and structure defined above. The previous review email to hodgedomain@google.com used an early version of these patterns.
+
 See `assets/brand/` for any supporting files. Update this page when the system evolves.

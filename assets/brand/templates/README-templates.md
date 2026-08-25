@@ -1,0 +1,1 @@
+Templates duplicated. Customize content areas per type (general notification, status, invoice, proposal, cold outreach) using card, btn-primary/ghost, mono-block, and signature. Dark shell adjusted for tokens.
