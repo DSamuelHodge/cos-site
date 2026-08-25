@@ -218,4 +218,53 @@ Reference numbers, timestamps, status lines only — never paragraphs.
 <hr style="border:none;border-top:1px solid #e3ddd2;margin:32px 4px;">
 
 **Protocol**: This page is the single source of truth for all email from hodge@agentmail.to. Update here first, then sync templates in `assets/brand/templates/`. Every send must conform.
-Pushed to main. Live at https://dsamuelhodge.github.io/cos-site/work/workflows/agentmail-brand-cheat-sheet/
+
+## Signature
+
+<div style="font-size:14px;color:#453e35;">
+  <div style="font-size:15px;font-weight:600;color:#2b2622;margin-bottom:2px;">Derrick Hodge</div>
+  <div style="color:#6f6759;margin-bottom:12px;">Founder &amp; Owner</div>
+  <div style="color:#6f6759;line-height:1.7;">
+    <a href="mailto:hodge@agentmail.to" style="color:#453e35;text-decoration:none;">hodge@agentmail.to</a><br>
+    <a href="tel:+15551234567" style="color:#453e35;text-decoration:none;">+1 (555) 123-4567</a><br>
+    <a href="https://dsamuelhodge.com" style="color:#453e35;text-decoration:none;">dsamuelhodge.com</a>
+  </div>
+</div>
+
+### footer
+
+<div style="font-size:12px;color:#948c7d;">
+  <p>&copy; 2026 Your Company. All rights reserved.</p>
+  <p><a href="#" style="color:#6f6759;text-decoration:none;">Unsubscribe</a> &middot; <a href="#" style="color:#6f6759;text-decoration:none;">Preferences</a></p>
+</div>
+
+---
+
+## 4. Rules by Email Category
+
+### Client-facing (onboarding, status update, proposal, invoice, deliverable, wrap-up)
+- Full chrome: nav-bar + hero + card`/`mono-block as needed + signature + footer
+- One primary CTA (`btn-primary`), optional one btn-ghost secondary — never two primaries
+- Accent use: badge-topaz`/`badge-emerald for status only; btn-accent-topaz only when the CTA is money- or deadline-critical (invoices, overdue notices) and needs to outrank a ghost button in the same email
+- Signature always present, always full (name/title/email/phone/site)
+
+### Business development (cold outreach, follow-up after call, case study/newsletter)
+- Cold outreach & follow-up: minimal chrome — no nav-bar, no card, no eyebrow. Just body-copy paragraphs + hairline + short signature. No accent colors at all — reads as personal, not templated. Inline text links only (`btn-inline`, underlined `ink`), never a button block.
+- Case study/newsletter: full chrome permitted, card for pull-quotes/stats, badge-emerald acceptable for outcome metrics ("+40% conversion"). No btn-accent-topaz — newsletters aren't transactional, don't force urgency.
+
+### Operational/general purpose (generic notification, password reset, auto-reply, internal team notification)
+- Generic notification: nav-bar + hero + single btn-primary. No card unless there's real structured data to show.
+- Internal team notification: chrome can be lighter — nav-bar optional, no signature required (internal sender is implicit), mono-block welcome for IDs/timestamps/build numbers.
+- Password reset/access: btn-primary only, no btn-ghost (avoid competing actions on a security-sensitive email), short expiry note in body color under the button.
+
+---
+
+## 5. Guardrails
+- One accent color per email, max — never topaz and emerald together.
+- Accent text on tint background only (`accent-deep` on accent-tint`); never accent-base as body text — contrast too low for `body-md.
+- No drop shadows, no gradients, no pill buttons — ever, in any category.
+- Structure/type/spacing/radii rules apply uniformly; only *chrome density* varies by category (business-dev outreach strips down, everything else keeps the full system).
+- Always pair html with text in the send call. Accent colors are html-only — text fallback stays plain, unstyled.
+- Max 600px content width, all categories, no exceptions.
+
+**Protocol**: This page is the single source of truth for all email from hodge@agentmail.to. Update here first, then sync all templates in `assets/brand/templates/`. Every send must conform to these rules, tokens, and components.
