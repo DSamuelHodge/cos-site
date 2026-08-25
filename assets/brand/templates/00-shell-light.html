@@ -4,56 +4,65 @@
 <meta charset="UTF-8">
 <title>Email Template</title>
 <style>
-  :root {
-    --canvas: #f7f5f0;
-    --canvas-soft: #efe9de;
-    --hairline: #e3ddd2;
-    --ink: #2b2622;
-    --body-strong: #453e35;
-    --body: #6f6759;
-    --mute: #948c7d;
-  }
   body {
-    margin: 0; padding: 0; background: var(--canvas); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.5; color: var(--body); font-size: 14px;
+    margin: 0; padding: 40px 20px; background: #f7f5f0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.5; color: #6f6759; font-size: 14px;
   }
-  .email-wrapper { max-width: 600px; margin: 20px auto; background: white; border: 1px solid var(--hairline); border-radius: 4px; overflow: hidden; }
-  .nav-bar { background: white; padding: 16px 28px; border-bottom: 1px solid var(--hairline); display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; color: var(--ink); }
-  .nav-bar a { color: var(--body-strong); text-decoration: none; }
-  .content { padding: 32px 28px; background: var(--canvas); }
-  .card { background: var(--canvas-soft); border: 1px solid var(--hairline); border-radius: 4px; padding: 24px; margin: 24px 0; }
-  .btn-primary { display: inline-block; background: var(--ink); color: var(--canvas); padding: 8px 20px; border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 14px; }
-  .btn-ghost { display: inline-block; background: transparent; color: var(--ink); padding: 8px 20px; border: 1px solid var(--hairline); border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 14px; margin-left: 8px; }
-  .mono-block { font-family: 'DM Mono', 'SFMono-Regular', Consolas, monospace; font-size: 13px; background: var(--canvas-soft); border: 1px solid var(--hairline); border-radius: 4px; padding: 12px; }
-  .hairline { height: 1px; background: var(--hairline); margin: 32px 0; }
-  .signature { margin-top: 24px; }
+  .email-wrapper {
+    max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e3ddd2; border-radius: 4px; overflow: hidden;
+  }
+  .nav-bar {
+    background: #ffffff; padding: 16px 28px; border-bottom: 1px solid #e3ddd2; display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; color: #2b2622;
+  }
+  .nav-bar a {
+    color: #453e35; text-decoration: none;
+  }
+  .content {
+    padding: 32px 28px; background: #f7f5f0;
+  }
+  .card {
+    background: #efe9de; border: 1px solid #e3ddd2; border-radius: 4px; padding: 24px; margin: 24px 0;
+  }
+  .btn-primary {
+    display: inline-block; background: #2b2622; color: #f7f5f0; padding: 8px 20px; border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 14px; margin-right: 8px;
+  }
+  .btn-ghost {
+    display: inline-block; background: transparent; color: #2b2622; padding: 8px 20px; border: 1px solid #e3ddd2; border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 14px;
+  }
+  .mono-block {
+    font-family: 'DM Mono', 'SFMono-Regular', Consolas, monospace; font-size: 13px; background: #efe9de; border: 1px solid #e3ddd2; border-radius: 4px; padding: 12px; display: inline-block; margin: 12px 0;
+  }
+  .hairline {
+    height: 1px; background: #e3ddd2; margin: 32px 0;
+  }
+  .signature {
+    color: #6f6759; font-size: 14px; line-height: 1.7;
+  }
+  .signature-name {
+    font-weight: 600; color: #453e35; font-size: 15px; margin-bottom: 2px;
+  }
 </style>
 </head>
 <body>
 <div class="email-wrapper">
-  <!-- nav-bar -->
   <div class="nav-bar">
-    <div>Derrick Hodge</div>
-    <a href="{{view_in_browser_url}}">View in browser</a>
+    <div style="font-weight:600;">Derrick Hodge</div>
+    <a href="#">View in browser</a>
   </div>
   
   <div class="content">
-    <!-- Template content goes here (cards, mono-blocks, buttons, etc.) -->
-    <p>Template content placeholder. Replace with specific card / status / CTA layout per use case.</p>
+    <!-- Specific template content (cards, mono, buttons, hero, etc.) goes here -->
+    <p>Replace this placeholder with the template-specific layout using the Design System rules above.</p>
     
-    <!-- hairline divider -->
     <div class="hairline"></div>
     
-    <!-- signature -->
+    <!-- Signature -->
     <div class="signature">
-      <!-- insert signature-snippet.html content here -->
-      <div style="margin: 32px 0; padding: 24px 0; border-top: 1px solid #e3ddd2; border-bottom: 1px solid #e3ddd2; color: #6f6759; font-size: 14px; line-height: 1.7;">
-        <div style="font-weight: 600; color: #453e35; font-size: 15px; margin-bottom: 2px;">Derrick Hodge</div>
-        <div style="margin-bottom: 8px;">Founder & Owner</div>
-        <div>
-          <a href="mailto:hodge@agentmail.to" style="color: #453e35; text-decoration: none;">hodge@agentmail.to</a> • 
-          <a href="tel:+15551234567" style="color: #453e35; text-decoration: none;">+1 (555) 123-4567</a> • 
-          <a href="https://dsamuelhodge.com" style="color: #453e35; text-decoration: none;">dsamuelhodge.com</a>
-        </div>
+      <div class="signature-name">Derrick Hodge</div>
+      <div style="margin-bottom:8px;">Founder & Owner</div>
+      <div>
+        <a href="mailto:hodge@agentmail.to" style="color:#453e35; text-decoration:none;">hodge@agentmail.to</a> • 
+        +1 (555) 123-4567 • 
+        <a href="https://dsamuelhodge.com" style="color:#453e35; text-decoration:none;">dsamuelhodge.com</a>
       </div>
     </div>
   </div>
