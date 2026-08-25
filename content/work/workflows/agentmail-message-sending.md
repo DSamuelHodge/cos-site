@@ -18,7 +18,6 @@ date: "2026-08-25"
 draft: false
 ---
 
-# AgentMail — Message Sending Cheat Sheet
 
 ## Endpoint
 POST /v0/inboxes/:inbox_id/messages/send
